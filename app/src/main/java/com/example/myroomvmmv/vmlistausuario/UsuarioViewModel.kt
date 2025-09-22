@@ -7,7 +7,8 @@ import androidx.lifecycle.ViewModel
 class UsuarioViewModel : ViewModel() {
     //private val _users = MutableLiveData<List<Usuario>>()
     //val users: LiveData<List<Usuario>> get() = _users
-    val users =  MutableLiveData<List<Usuario>>()
+    val users
+    =  MutableLiveData<List<Usuario>>()
 
     fun loadUsersIfNeeded() {
         if (users.value == null) {

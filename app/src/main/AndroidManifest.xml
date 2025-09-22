@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyRoomVMMV">
         <activity
+            android:name=".bdpersona.ActivityPersonasDB"
+            android:exported="false" />
+        <activity
             android:name=".vmlistausuario.ActivityListaUsuariosMVVM"
             android:exported="false" />
         <activity
