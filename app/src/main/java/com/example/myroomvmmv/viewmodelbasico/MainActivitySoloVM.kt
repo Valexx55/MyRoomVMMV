@@ -17,6 +17,7 @@ class MainActivitySoloVM : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_solo_vm)
 
+        //TODO mutar esto a LIVE DATA
         viewModel = ViewModelProvider(this).get(CounterViewModel::class.java)
 
         val textView = findViewById<TextView>(R.id.textView1)

@@ -18,7 +18,13 @@ class PersonaViewModel(application: Application) : AndroidViewModel(application)
         personas = repository.todasLasPersonas
     }
 
-    fun insertar(persona: Persona) = viewModelScope.launch {
+    /*fun insertar(persona: Persona) = viewModelScope.launch {
         repository.insertar(persona)
+    }*/
+
+    fun insertar(persona: Persona) {
+        viewModelScope.launch {
+            repository.insertar(persona)
+        }
     }
 }
