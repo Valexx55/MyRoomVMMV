@@ -27,4 +27,10 @@ class PersonaViewModel(application: Application) : AndroidViewModel(application)
             repository.insertar(persona)
         }
     }
+
+    fun borrar(persona: Persona) {
+        viewModelScope.launch {
+            repository.borrar(persona)
+        }
+    }
 }

@@ -8,7 +8,7 @@ class PersonaVH(val filaPersona:FilaPersonaBinding):ViewHolder(filaPersona.root)
 
     fun rellenarFila (persona:Persona)
     {
-        this.filaPersona.id.text = persona.id.toString()
+        this.filaPersona.idpersona.text = persona.id.toString()
         this.filaPersona.nombre.text = persona.nombre
         this.filaPersona.edad.text = persona.edad.toString()
     }

@@ -11,4 +11,8 @@ class PersonaRepository(private val personaDao: PersonaDao) {
     suspend fun insertar(persona: Persona) {
         personaDao.insertar(persona)
     }
+
+    suspend fun borrar(persona: Persona) {
+        personaDao.borrar(persona)
+    }
 }
