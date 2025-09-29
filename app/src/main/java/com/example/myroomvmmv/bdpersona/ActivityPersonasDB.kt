@@ -10,25 +10,27 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.myroomvmmv.R
 import androidx.lifecycle.Observer
+import com.example.myroomvmmv.bdpersona.adapter.AdapterPersonas
 import com.example.myroomvmmv.bdpersona.entity.Persona
 import com.example.myroomvmmv.bdpersona.viewmodel.PersonaViewModel
+import com.example.myroomvmmv.databinding.ActivityPersonasDbBinding
 
 class ActivityPersonasDB : AppCompatActivity() {
 
     val personas: MutableList<Persona> = mutableListOf()
-
+    lateinit var binding:ActivityPersonasDbBinding
+    lateinit var adapterPersonas: AdapterPersonas
 
     private val personaViewModel: PersonaViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_personas_db)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        binding = ActivityPersonasDbBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        adapterPersonas = AdapterPersonas(personas)
+        binding.recview.adapter = adapterPersonas
+
 
         // Observador para la lista de personas
         personaViewModel.personas.observe(this, Observer { personas ->
@@ -37,7 +39,12 @@ class ActivityPersonasDB : AppCompatActivity() {
             personas?.let {
                 // Tu lógica para manejar la lista
                 Log.d("MIAPP", "Personas: $it")
+                adapterPersonas = AdapterPersonas(it)
+                adapterPersonas.notifyDataSetChanged()
+
             }
+
+
         })
     }
 
